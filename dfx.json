@@ -1,19 +1,19 @@
 {
   "canisters": {
-    "producer_consumer_pnet_backend": {
-      "main": "src/producer_consumer_pnet_backend/main.mo",
+    "petrinet_producer_consumer_backend": {
+      "main": "src/petrinet_producer_consumer_backend/main.mo",
       "type": "motoko"
     },
-    "producer_consumer_pnet_frontend": {
+    "petrinet_producer_consumer_frontend": {
       "dependencies": [
-        "producer_consumer_pnet_backend"
+        "petrinet_producer_consumer_backend"
       ],
       "frontend": {
-        "entrypoint": "src/producer_consumer_pnet_frontend/src/index.html"
+        "entrypoint": "src/petrinet_producer_consumer_frontend/src/index.html"
       },
       "source": [
-        "src/producer_consumer_pnet_frontend/assets",
-        "dist/producer_consumer_pnet_frontend/"
+        "src/petrinet_producer_consumer_frontend/assets",
+        "dist/petrinet_producer_consumer_frontend/"
       ],
       "type": "assets"
     }

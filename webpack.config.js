@@ -7,7 +7,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
-const frontendDirectory = "producer_consumer_pnet_frontend";
+const frontendDirectory = "petrinet_producer_consumer_frontend";
 
 const frontend_entry = path.join("src", frontendDirectory, "src", "index.html");
 

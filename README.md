@@ -1,10 +1,47 @@
-# producer_consumer_pnet
+# Petri Nets Producer Consumer
 
-Welcome to your new producer_consumer_pnet project and to the internet computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+**Summary**
+
+Here is a simple Petri Net implemented as a Motoko actor. The Petri Net consists of nodes representing transitions between states. Petri Nets can be used for various design patterns, a producer-consumer model. It uses asynchronous functions to model the behavior of a producer and a consumer, both interacting with a shared state. 
+
+**Walkthrough**
+
+1. **Petri Net Setup:**
+   - The Petri Net actor includes utility functions using random numbers to simulate work.  It defines types for `State`, `Token`, `Transition`, and `Node`.
+
+2. **Producer and Consumer Transitions:**
+   - Two transition functions are defined: `producerContract` and `consumerContract`. These functions manipulate a `Token` by updating its `count` and `state` based on certain conditions.
+
+3. **Random Number Generation:**
+   - The `doThingsAndUpdate` function simulates the consumption process based on a randomly generated number. If the random number is divisible evenly by the token count, the state becomes `Idle`; otherwise, it becomes `Consuming`.
+
+4. **Transition Execution:**
+   - The `fireTransition` function takes a `Node` and executes its associated transition, updating the node's token accordingly.
+
+5. **Node Initialization:**
+   - Two nodes, `producerNode` and `consumerNode`, are initialized with initial tokens and associated transition functions.
+
+6. **Producer and Consumer Functions:**
+   - The `producer` and `consumer` functions trigger transitions for the producer and consumer nodes, respectively. The shared state is updated between them.
+
+7. **Driver Function:**
+   - The `driver` function orchestrates the interaction between the producer and consumer nodes in a loop. It iterates `n` times, calling the producer function and then alternating with the consumer function until the consumer's token count is zero.
+
+**TODO**
+- The code does not handle errors or exceptions explicitly.
+- Refactor Petri Net transitions to support multiple arcs.
+
+This code provides a basic implementation of a Petri Net in Motoko, demonstrating the interaction between a producer and a consumer within the context of state transitions.
+
+
+
+
+# dfx project documentation
+Welcome to your new petrinet_producer_consumer project and to the internet computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
 
 To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
 
-To learn more before you start working with producer_consumer_pnet, see the following documentation available online:
+To learn more before you start working with petrinet_producer_consumer, see the following documentation available online:
 
 - [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
 - [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
@@ -14,7 +51,7 @@ To learn more before you start working with producer_consumer_pnet, see the foll
 If you want to start working on your project right away, you might want to try the following commands:
 
 ```bash
-cd producer_consumer_pnet/
+cd petrinet_producer_consumer/
 dfx help
 dfx canister --help
 ```

@@ -1,4 +1,4 @@
-import { producer_consumer_pnet_backend } from "../../declarations/producer_consumer_pnet_backend";
+import { petrinet_producer_consumer_backend } from "../../declarations/petrinet_producer_consumer_backend";
 
 document.querySelector("form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -9,7 +9,7 @@ document.querySelector("form").addEventListener("submit", async (e) => {
   button.setAttribute("disabled", true);
 
   // Interact with foo actor, calling the greet method
-  const greeting = await producer_consumer_pnet_backend.greet(name);
+  const greeting = await petrinet_producer_consumer_backend.greet(name);
 
   button.removeAttribute("disabled");
 
