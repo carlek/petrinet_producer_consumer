@@ -4,6 +4,9 @@
 
 Here is a simple Petri Net implemented as a Motoko actor. The Petri Net consists of nodes, tokens, states, and transitions. Petri Nets can be used for various design patterns, this pattern is a producer-consumer model. Motoko uses asynchronous functions to model the behavior of a producer and a consumer, interacting with a shared state thru transition code. 
 
+![Simple Petri Net](petrinet_machine.png)
+
+
 **Walkthrough**
 
 1. **Petri Net Setup**

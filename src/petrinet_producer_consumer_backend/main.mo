@@ -47,7 +47,7 @@ actor PetriNet {
     // Transition function for consumer
     public func consumerContract(t : Token) : async Token {
         var token = t;
-        // consume when count is multiple of 3
+        // start consuming when token count is multiple of 3
         if (token.count % 3 == 0) {
             token := {t with state = #Consuming};
         };
