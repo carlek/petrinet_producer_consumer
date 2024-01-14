@@ -3,17 +3,21 @@ import { petrinet_producer_consumer_backend } from "../../declarations/petrinet_
 document.querySelector("form").addEventListener("submit", async (e) => {
   e.preventDefault();
   const button = e.target.querySelector("button");
-
-  const name = document.getElementById("name").value.toString();
+  const countSection = document.getElementById("count");
+  const producer_num_element = document.getElementById("producer_num");
+  const producer_num = parseInt(producer_num_element.value, 10); 
 
   button.setAttribute("disabled", true);
 
-  // Interact with foo actor, calling the greet method
-  const greeting = await petrinet_producer_consumer_backend.greet(name);
+  countSection.innerHTML = `<p># Iterations to Exhaust All Tokens ??? </p>`;
+
+  // Interact with actor, calling the driver method
+  const count = await petrinet_producer_consumer_backend.driver(producer_num);
 
   button.removeAttribute("disabled");
 
-  document.getElementById("greeting").innerText = greeting;
+  // document.getElementById("count").innerText = count;
+  countSection.innerHTML = `<p><p># Iterations to Exhaust All Tokens = ${count}</p>`;
 
   return false;
 });

@@ -2,29 +2,29 @@
 
 **Summary**
 
-Here is a simple Petri Net implemented as a Motoko actor. The Petri Net consists of nodes representing transitions between states. Petri Nets can be used for various design patterns, a producer-consumer model. It uses asynchronous functions to model the behavior of a producer and a consumer, both interacting with a shared state. 
+Here is a simple Petri Net implemented as a Motoko actor. The Petri Net consists of nodes, tokens, states, and transitions. Petri Nets can be used for various design patterns, this pattern is a producer-consumer model. Motoko uses asynchronous functions to model the behavior of a producer and a consumer, interacting with a shared state thru transition code. 
 
 **Walkthrough**
 
-1. **Petri Net Setup:**
+1. **Petri Net Setup**
    - The Petri Net actor includes utility functions using random numbers to simulate work.  It defines types for `State`, `Token`, `Transition`, and `Node`.
 
-2. **Producer and Consumer Transitions:**
+1. **Producer and Consumer Transitions**
    - Two transition functions are defined: `producerContract` and `consumerContract`. These functions manipulate a `Token` by updating its `count` and `state` based on certain conditions.
 
-3. **Random Number Generation:**
+1. **Random Number Generation**
    - The `doThingsAndUpdate` function simulates the consumption process based on a randomly generated number. If the random number is divisible evenly by the token count, the state becomes `Idle`; otherwise, it becomes `Consuming`.
 
-4. **Transition Execution:**
+1. **Transition Execution**
    - The `fireTransition` function takes a `Node` and executes its associated transition, updating the node's token accordingly.
 
-5. **Node Initialization:**
+1. **Node Initialization:**
    - Two nodes, `producerNode` and `consumerNode`, are initialized with initial tokens and associated transition functions.
 
-6. **Producer and Consumer Functions:**
+1. **Producer and Consumer Functions**
    - The `producer` and `consumer` functions trigger transitions for the producer and consumer nodes, respectively. The shared state is updated between them.
 
-7. **Driver Function:**
+1. **Driver Function:**
    - The `driver` function orchestrates the interaction between the producer and consumer nodes in a loop. It iterates `n` times, calling the producer function and then alternating with the consumer function until the consumer's token count is zero.
 
 **TODO**
