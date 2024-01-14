@@ -9,7 +9,7 @@ document.querySelector("form").addEventListener("submit", async (e) => {
 
   button.setAttribute("disabled", true);
 
-  countSection.innerHTML = `<p># Iterations to Exhaust All Tokens ??? </p>`;
+  countSection.innerHTML = `<p>Exhausting All Tokens... <img src="../loading.gif"/> </p>`;
 
   // Interact with actor, calling the driver method
   const count = await petrinet_producer_consumer_backend.driver(producer_num);
@@ -17,7 +17,7 @@ document.querySelector("form").addEventListener("submit", async (e) => {
   button.removeAttribute("disabled");
 
   // document.getElementById("count").innerText = count;
-  countSection.innerHTML = `<p><p># Iterations to Exhaust All Tokens = ${count}</p>`;
+  countSection.innerHTML = `<p><p>Iterations = ${count}</p>`;
 
   return false;
 });

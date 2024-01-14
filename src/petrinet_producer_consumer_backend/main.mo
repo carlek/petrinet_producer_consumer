@@ -51,7 +51,7 @@ actor PetriNet {
         if (token.count % 3 == 0) {
             token := {t with state = #Consuming};
         };
-        // consume until
+        // consume until consuming state is false or count = 0
         while (token.state == #Consuming and token.count > 0) {
             token := {
                 count = token.count - 1;
@@ -92,18 +92,18 @@ actor PetriNet {
     };
 
     public func producer() : async Node {
-        Debug.print("1. producerNode.token=" # debug_show(producerNode.token));
+        Debug.print("1. created: producerNode.token=" # debug_show(producerNode.token));
         producerNode := await fireTransition(producerNode);
-        Debug.print("2. producerNode.token=" # debug_show(producerNode.token));
+        Debug.print("2. fired: producerNode.token=" # debug_show(producerNode.token));
         consumerNode := { consumerNode with token = producerNode.token };
         return producerNode;
     };
 
     public func consumer() : async Node {
-        // Debug.print("1. consumerNode.token=" # debug_show(consumerNode.token));
+        Debug.print("1. created: consumerNode.token=" # debug_show(consumerNode.token));
         consumerNode := await fireTransition(consumerNode);
         producerNode := { producerNode with token = consumerNode.token };
-        // Debug.print("2. consumerNode.token=" # debug_show(consumerNode.token));
+        Debug.print("2. fired: consumerNode.token=" # debug_show(consumerNode.token));
         return consumerNode;
     };
 

@@ -35,3 +35,9 @@ button[type="submit"] {
 #greeting:empty {
     display: none;
 }
+
+#count p img {
+  width: 1em;
+  height: 1em;
+  vertical-align: baseline;
+}
