@@ -37,12 +37,20 @@ Here is a simple Petri Net implemented as a Motoko actor. The Petri Net consists
 > dfx deploy 
 ```
 ```bash
+> # Run: command line 
 > # call producer a few times 
 > dfx canister call <backend-canister> producer
 > dfx canister call <backend-canister> producer
 > # call consumer which will run til idle state. 
 > dfx canister call <backend-canister> consumer
+> # call driver initialising token count of 12
+> dfx canister call <backend-canister> driver '(12)'
+>
+> Run: on localhost frontend
+> npm start 
+> # goto https://localhost:8080 and run driver 
 ```
+
 
 
 **TODO**
