@@ -50,8 +50,7 @@ Here is a simple Petri Net implemented as a Motoko actor. The Petri Net consists
 > npm start 
 > # goto https://localhost:8080 and run driver 
 ```
-
-![Petri Net Driver app](petrinet-driver.jpeg)
+![PetriNet Driver App](petrinet-driver.jpeg)
 
 
 **TODO**

@@ -1,6 +1,7 @@
 # Various IDEs and Editors
 .vscode/
 .idea/
+.history
 **/*~
 
 # Mac OSX temporary files
@@ -9,6 +10,7 @@
 
 # dfx temporary files
 .dfx/
+
 
 # generated files
 src/declarations/
