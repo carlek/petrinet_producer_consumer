@@ -51,6 +51,7 @@ Here is a simple Petri Net implemented as a Motoko actor. The Petri Net consists
 > # goto https://localhost:8080 and run driver 
 ```
 
+![Petri Net Driver app](petrinet-driver.jpeg)
 
 
 **TODO**
