@@ -30,6 +30,21 @@ Here is a simple Petri Net implemented as a Motoko actor. The Petri Net consists
 1. **Driver Function:**
    - The `driver` function orchestrates the interaction between the producer and consumer nodes in a loop. It iterates `n` times, calling the producer function and then alternating with the consumer function until the consumer's token count is zero.
 
+**Deploy and Run**
+```bash
+> # Deploy: start dfx and deploy canisters 
+> dfx start --background
+> dfx deploy 
+```
+```bash
+> # call producer a few times 
+> dfx canister call <backend-canister> producer
+> dfx canister call <backend-canister> producer
+> # call consumer which will run til idle state. 
+> dfx canister call <backend-canister> consumer
+```
+
+
 **TODO**
 - The code does not handle errors or exceptions explicitly.
 - Refactor Petri Net transitions to support multiple arcs.
