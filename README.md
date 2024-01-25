@@ -2,7 +2,9 @@
 
 **Summary**
 
-Here is a simple Petri Net implemented as a Motoko actor. The Petri Net consists of nodes, tokens, states, and transitions. Petri Nets can be used for various design patterns, this pattern is a producer-consumer model. Motoko uses asynchronous functions to model the behavior of a producer and a consumer, interacting with a shared state thru transition code. 
+Here is a simple Petri Net implementation. The net is implemented in Motoko as a single actor. The Petri Net consists of nodes, tokens, states, and transitions. 
+
+Petri Nets can be used for various design patterns, this pattern is a producer-consumer model. Motoko uses asynchronous functions to model the behavior of a producer and a consumer, interacting with a shared state thru transition code. 
 
 ![Simple Petri Net](petrinet_machine.png)
 
@@ -26,7 +28,10 @@ Here is a simple Petri Net implemented as a Motoko actor. The Petri Net consists
 
 1. **Producer and Consumer Functions**
    - The `producer` and `consumer` functions trigger transitions for the producer and consumer nodes, respectively. The shared state is updated between them.
-
+   - The two functions operate as contracts, and the two contracts behave differently:
+      - producer contract: simply generate a token.
+      - consumer contract: if token count is divisible by 3 then the tokens are 'consumed' based on the `doThingsAndUpdate` function described above.
+     
 1. **Driver Function:**
    - The `driver` function orchestrates the interaction between the producer and consumer nodes in a loop. It iterates `n` times, calling the producer function and then alternating with the consumer function until the consumer's token count is zero.
 
