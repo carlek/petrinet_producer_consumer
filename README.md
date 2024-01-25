@@ -29,8 +29,8 @@ Petri Nets can be used for various design patterns, this pattern is a producer-c
 1. **Producer and Consumer Functions**
    - The `producer` and `consumer` functions trigger transitions for the producer and consumer nodes, respectively. The shared state is updated between them.
    - The two functions operate as contracts, and the two contracts behave differently:
-      - producer contract: simply generate a token.
-      - consumer contract: if token count is divisible by 3 then the tokens are 'consumed' based on the `doThingsAndUpdate` function described above.
+      - producer contract: increment token count.
+      - consumer contract: if token count is divisible by 3 then the tokens are 'consumed' (decrement token count) and state altered thru the `doThingsAndUpdate` function described above.
      
 1. **Driver Function:**
    - The `driver` function orchestrates the interaction between the producer and consumer nodes in a loop. It iterates `n` times, calling the producer function and then alternating with the consumer function until the consumer's token count is zero.
